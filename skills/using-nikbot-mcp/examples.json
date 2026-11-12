@@ -1,0 +1,115 @@
+{
+  "pack_version": "0.2.0",
+  "purpose": "Offline input-schema fixtures, NOT an executable workflow or proof of backend acceptance. All IDs, project, model and signature are synthetic. Replace only from actual authorized data; never send the invalid signature placeholder. No tool responses or consent are represented.",
+  "cases": [
+    {
+      "id": "discover", "schema_valid": true,
+      "request": {"jsonrpc": "2.0", "id": "discover", "method": "tools/call", "params": {"name": "engine_capabilities", "arguments": {}}}
+    },
+    {
+      "id": "submit-default", "schema_valid": true,
+      "note": "Replace project with a granted project. Omitted target defaults to codex; omitted model uses configured default. Persist actual intent/key first.",
+      "request": {"jsonrpc": "2.0", "id": "submit-default", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "REPLACE_ALLOWED_PROJECT", "text": "Read README.md if available and summarize readiness. Do not change project files, deploy or call external services. Follow required runner reporting; state missing evidence honestly.", "key": "caller_readiness_001"}}}
+    },
+    {
+      "id": "submit-selected", "schema_valid": true,
+      "note": "A separate example, not a second submission/retry. claudecode must actually be available and the model must be replaced with a model from that engine's current catalog. This does not select a provider route.",
+      "request": {"jsonrpc": "2.0", "id": "submit-selected", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "REPLACE_ALLOWED_PROJECT", "text": "Return a bounded nonsecret readiness summary within the approved project scope. Do not deploy or change security settings.", "key": "caller_selected_001", "target": "claudecode", "model": "replace-with-advertised-model"}}}
+    },
+    {
+      "id": "submit-explicit-route", "schema_valid": true,
+      "note": "Separate example, never a retry. Require this exact route to advertise selection support and the task to be already authorized. Omit target; explicit codex conflicts. This selects operator configuration, not verified upstream identity or native permission.",
+      "request": {"jsonrpc": "2.0", "id": "submit-explicit-route", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "REPLACE_ALLOWED_PROJECT", "text": "Summarize readiness within the approved scope and write required private reports. Do not deploy, change security settings or call external services.", "key": "caller_route_001", "route": "claude_gpt_proxy"}}}
+    },
+    {
+      "id": "reject-unknown-route", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-unknown-route", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_route", "route": "invented_provider"}}}
+    },
+    {
+      "id": "status", "schema_valid": true,
+      "request": {"jsonrpc": "2.0", "id": "status", "method": "tools/call", "params": {"name": "job_status", "arguments": {"job_id": "00000000000000000000000000000000"}}}
+    },
+    {
+      "id": "result", "schema_valid": true,
+      "request": {"jsonrpc": "2.0", "id": "result", "method": "tools/call", "params": {"name": "job_result", "arguments": {"job_id": "00000000000000000000000000000000"}}}
+    },
+    {
+      "id": "conversation-resume", "schema_valid": true,
+      "note": "Only for the actual latest eligible job; new authorized intent and key. Not an execution retry, permission release or target switch.",
+      "request": {"jsonrpc": "2.0", "id": "conversation-resume", "method": "tools/call", "params": {"name": "resume_job", "arguments": {"job_id": "00000000000000000000000000000000", "text": "Summarize the evidence already collected and unresolved questions. Do not repeat earlier side effects.", "key": "caller_followup_001"}}}
+    },
+    {
+      "id": "answer", "schema_valid": true,
+      "note": "Use the actual pending question ID and answer only within delegated authority. This synthetic ordinary answer is not human review acceptance or a permission signature.",
+      "request": {"jsonrpc": "2.0", "id": "answer", "method": "tools/call", "params": {"name": "answer_question", "arguments": {"job_id": "00000000000000000000000000000000", "question_id": "11111111111111111111111111111111", "text": "Use the English output format already requested; do not broaden task scope.", "key": "caller_answer_001"}}}
+    },
+    {
+      "id": "pending", "schema_valid": true,
+      "request": {"jsonrpc": "2.0", "id": "pending", "method": "tools/call", "params": {"name": "permission_pending", "arguments": {"job_id": "00000000000000000000000000000000"}}}
+    },
+    {
+      "id": "approval-inspect", "schema_valid": true,
+      "request": {"jsonrpc": "2.0", "id": "approval-inspect", "method": "tools/call", "params": {"name": "permission_get", "arguments": {"approval_id": "22222222222222222222222222222222"}}}
+    },
+    {
+      "id": "owner-response-shape-only", "schema_valid": true,
+      "note": "DO NOT SEND. This 88-character invalid signature only satisfies the input length schema. Neither allow nor deny may be signed by an agent for the owner. Relay a genuine independently verified human signature only through the trusted workflow.",
+      "request": {"jsonrpc": "2.0", "id": "owner-response-shape-only", "method": "tools/call", "params": {"name": "permission_respond", "arguments": {"approval_id": "22222222222222222222222222222222", "decision": "deny", "signature": "DO_NOT_SEND_DO_NOT_SEND_DO_NOT_SEND_DO_NOT_SEND_DO_NOT_SEND_DO_NOT_SEND_DO_NOT_SEND_FAKE"}}}
+    },
+    {
+      "id": "permission-revalidate", "schema_valid": true,
+      "note": "Only the original still-waiting exact invocation. This cannot revive denied, expired, disconnected, changed or unknown execution.",
+      "request": {"jsonrpc": "2.0", "id": "permission-revalidate", "method": "tools/call", "params": {"name": "permission_resume", "arguments": {"approval_id": "22222222222222222222222222222222"}}}
+    },
+    {
+      "id": "artifacts-first", "schema_valid": true,
+      "request": {"jsonrpc": "2.0", "id": "artifacts-first", "method": "tools/call", "params": {"name": "job_artifacts", "arguments": {"job_id": "00000000000000000000000000000000", "cursor": ""}}}
+    },
+    {
+      "id": "artifacts-next", "schema_valid": true,
+      "note": "Use only an actual nonempty next_cursor returned by the preceding page, never this synthetic cursor.",
+      "request": {"jsonrpc": "2.0", "id": "artifacts-next", "method": "tools/call", "params": {"name": "job_artifacts", "arguments": {"job_id": "00000000000000000000000000000000", "cursor": "33333333333333333333333333333333"}}}
+    },
+    {
+      "id": "artifact-entry", "schema_valid": true,
+      "note": "Replace artifact_id/path only from actual approved entries. The tool issues a link; it does not prove content delivery or hash verification.",
+      "request": {"jsonrpc": "2.0", "id": "artifact-entry", "method": "tools/call", "params": {"name": "artifact_file", "arguments": {"job_id": "00000000000000000000000000000000", "artifact_id": "44444444444444444444444444444444", "path": "REPLACE_APPROVED_ENTRY.txt"}}}
+    },
+    {
+      "id": "reject-route-gpt-proxy", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-route-gpt-proxy", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_route_1", "target": "claude_gpt_proxy"}}}
+    },
+    {
+      "id": "reject-route-original", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-route-original", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_route_2", "target": "claude_original"}}}
+    },
+    {
+      "id": "reject-route-openrouter", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-route-openrouter", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_route_3", "target": "claude_openrouter"}}}
+    },
+    {
+      "id": "reject-route-antigravity", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-route-antigravity", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_route_4", "target": "antigravity"}}}
+    },
+    {
+      "id": "reject-route-codex-cli", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-route-codex-cli", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_route_5", "target": "codex_cli"}}}
+    },
+    {
+      "id": "reject-extra-owner", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-extra-owner", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_owner", "owner": "synthetic"}}}
+    },
+    {
+      "id": "reject-invented-envelope", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-invented-envelope", "method": "tools/call", "params": {"name": "submit_job", "arguments": {"project": "synthetic", "text": "synthetic", "key": "bad_envelope", "protocol_version": "0.1.0", "route": "claude_gpt_proxy", "budget": 1, "deadline": 60}}}
+    },
+    {
+      "id": "reject-target-on-resume", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-target-on-resume", "method": "tools/call", "params": {"name": "resume_job", "arguments": {"job_id": "00000000000000000000000000000000", "text": "synthetic", "key": "bad_target", "target": "claudecode"}}}
+    },
+    {
+      "id": "reject-short-signature", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-short-signature", "method": "tools/call", "params": {"name": "permission_respond", "arguments": {"approval_id": "22222222222222222222222222222222", "decision": "allow", "signature": "not-consent"}}}
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "pack_version": "0.2.0",
+  "source_repository": "saeidsm/Codex-Cli-MCP",
+  "source_commit": "9e7b8d9100f07d092f6460bd06760a95af71778f",
+  "scope": "Offline source input-schema snapshot; connected tools/list remains authoritative. No handlers invoked; not live-server availability or runtime permission evidence.",
+  "tools": [
+    {
+      "name": "engine_capabilities",
+      "inputSchema": {
+        "properties": {},
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "submit_job",
+      "inputSchema": {
+        "properties": {
+          "project": {
+            "pattern": "^[A-Za-z0-9_-]{1,128}$",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 8000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "key": {
+            "pattern": "^[A-Za-z0-9_-]{1,128}$",
+            "type": "string"
+          },
+          "target": {
+            "anyOf": [
+              {
+                "pattern": "^(codex|claudecode)$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "model": {
+            "anyOf": [
+              {
+                "pattern": "^(?:[a-z0-9~][a-z0-9._:/~-]{0,127})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "route": {
+            "anyOf": [
+              {
+                "pattern": "^(?:claude_gpt_proxy|claude_original|claude_openrouter|antigravity|codex_cli)$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "project",
+          "text",
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "job_status",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "job_result",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "job_artifacts",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "cursor": {
+            "default": "",
+            "pattern": "^(?:[a-f0-9]{32})?$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "artifact_file",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "artifact_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "path": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id",
+          "artifact_id",
+          "path"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "resume_job",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 8000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "key": {
+            "pattern": "^[A-Za-z0-9_-]{1,128}$",
+            "type": "string"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "pattern": "^(?:[a-z0-9~][a-z0-9._:/~-]{0,127})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "job_id",
+          "text",
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "answer_question",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "question_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 8000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "key": {
+            "pattern": "^[A-Za-z0-9_-]{1,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id",
+          "question_id",
+          "text",
+          "key"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "permission_pending",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "permission_get",
+      "inputSchema": {
+        "properties": {
+          "approval_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "approval_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "permission_respond",
+      "inputSchema": {
+        "properties": {
+          "approval_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "decision": {
+            "pattern": "^(allow|deny)$",
+            "type": "string"
+          },
+          "signature": {
+            "maxLength": 88,
+            "minLength": 88,
+            "type": "string"
+          }
+        },
+        "required": [
+          "approval_id",
+          "decision",
+          "signature"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "permission_resume",
+      "inputSchema": {
+        "properties": {
+          "approval_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "approval_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    }
+  ]
+}
