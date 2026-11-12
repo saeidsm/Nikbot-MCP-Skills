@@ -1,11 +1,19 @@
 {
-  "pack_version": "0.3.0",
+  "pack_version": "0.4.0",
   "source_repository": "saeidsm/Codex-Cli-MCP",
-  "source_commit": "4d39d8cd52ef4659955a2320f76b7efecdfaa491",
+  "source_commit": "aa012343088842a6882c8f5f4874773cb0d433c5",
   "scope": "Offline source input-schema snapshot; connected tools/list remains authoritative. No handlers invoked; not live-server availability or runtime permission evidence.",
   "tools": [
     {
       "name": "engine_capabilities",
+      "inputSchema": {
+        "properties": {},
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "host_resources",
       "inputSchema": {
         "properties": {},
         "type": "object",

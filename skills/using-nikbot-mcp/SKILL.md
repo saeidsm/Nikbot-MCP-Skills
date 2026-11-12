@@ -5,7 +5,7 @@ description: Use when an authorized caller needs Nikbot MCP project jobs, engine
 
 # Using Nikbot MCP
 
-**Pack version 0.3.0 — source contract inspected 2026-11-12.** This is a prepared caller reference, not an installed skill, deployment attestation or new wire protocol. The connected server's `tools/list` is authoritative. Use the existing authenticated MCP connection and negotiated MCP transport; never add a pack-version envelope to tool arguments.
+**Pack version 0.4.0 — source contract inspected 2026-11-12.** This is a prepared caller reference, not an installed skill, deployment attestation or new wire protocol. The connected server's `tools/list` is authoritative. Use the existing authenticated MCP connection and negotiated MCP transport; never add a pack-version envelope to tool arguments.
 
 ## First task: discover, choose, submit, observe
 
@@ -34,13 +34,14 @@ The JSON-RPC `id` correlates one request; it is not the durable idempotency `key
 
 Omitted `target` is distinguishable from explicit `codex`: the latter conflicts with a Claude route. Sessions inherit the exact route/configuration binding; resume cannot switch routes or repair a changed binding. `route_unavailable`, `route_target_conflict`, `route_permission_profile_required` and `route_binding_changed` are refusals, not fallback signals. Preserve arguments/key/IDs and obtain authorized operator resolution; do not drop the route, change keys or route around the refusal. Existing target-only sessions report no route selection and are not retroactively attested.
 
-## Actual 13-tool quick reference
+## Actual 14-tool quick reference
 
 Required arguments are shown without `?`. No tool accepts a caller-supplied owner.
 
 | Tool | Arguments | Purpose / limit |
 |---|---|---|
 | `engine_capabilities` | none | Configuration/catalog discovery, not a live health probe. |
+| `host_resources` | none | Bounded host observation for the configured owner with a current registered-project grant; partial readings, not execution headroom or authority. |
 | `submit_job` | `project, text, key, target?, model?, route?` | New approved task; explicit configured strict route when supported, otherwise historical default target `codex`. |
 | `job_status` | `job_id` | Owner-scoped snapshot. |
 | `job_events` | `job_id, after_seq?, limit?` | Currently granted job's ordered coordination metadata. Start at `"0"`; integer limit 1–100, default 100. |
@@ -97,6 +98,35 @@ Stop the current enumeration at `has_more:false`, including an empty page, which
 
 Phase labels such as `approval_human_response`, `approval_finished`, `completed` or `secondary_usage_settled` are recorded categories, not proof of an allow decision, native permission, effect success, human identity or known spend. Unknown phase/time stays unknown. Inspect current status/result and the established approval/evidence tools for their own facts; no event instructs the caller to execute, approve, resume or replay an action. No free-text summary, reason, prompt, path, signature, approval preimage or raw evidence is delivered by this view.
 
+## Read bounded host resources
+
+Discover `host_resources` and its empty argument schema first, then send `{"name":"host_resources","arguments":{}}` through `tools/call`. No project, owner, job, path, process or freshness argument is accepted. The configured controller owner must still have a grant intersecting the current project registry; authentication alone is insufficient. Unauthorized reads are errors, not an unavailable sample. Never submit a shell job or use a private endpoint to obtain denied or missing telemetry.
+
+After the normal transport/JSON-RPC/MCP checks, require `{available:boolean, reason, sample}`. `available:true` requires `reason:null` and a sample object; it means an observation returned, **not that every metric is known or the host is healthy**. `available:false` requires `sample:null` and one of these reasons:
+
+| Reason | Caller interpretation |
+|---|---|
+| `unsupported` | This adapter cannot collect these facts; stop and report unavailable. |
+| `closed` | Controller is stopping/closed; stop and hand off. |
+| `busy` | One observation is still owned by the controller; no second worker was queued. |
+| `timeout` | Server caller wait expired (currently 2 seconds); the real worker may still be running. |
+| `observation_failed` | Collection failed; no private exception text or stale sample is returned. |
+
+For `busy`, `timeout`, `observation_failed` or a transport timeout, this read-only operation may be retried only within a caller-selected overall deadline, at most three total calls, with at least one second between calls. Bound every in-flight wait to the remaining deadline; without a deadline return unavailable instead of retrying. Stop on authentication/authorization failure, malformed or unfamiliar output. A local timeout/cancellation does not stop the server worker or any job. The server retains one worker until settlement, discards its completed response, and starts a new observation for a later admitted call; there is no completed host-response cache or stale fallback. CPU sampling has the separate short cache below.
+
+Sample fields and interpretation:
+
+- `measured_at`: UTC ISO timestamp at completion of the fixed host-facts reads. It is not proof that any individual metric succeeded and does not make the whole sample an atomic snapshot. Report the observation time and caller receipt time; if the timestamp is absent/invalid or age cannot be established, freshness is unknown. Choose an explicit maximum acceptable age for the task; old samples must be labelled stale, not silently treated as current.
+- `loadavg`: a string of Linux 1/5/15-minute load averages, **not CPU percent**, or `"unavailable"`.
+- `mem_total_mib`, `mem_available_mib`: MiB, or `"unknown"`. Available memory is a host observation, not per-job allocation or guaranteed admission headroom.
+- `swap_total_mib`, `swap_free_mib`, `swap_used_mib`: MiB or null. Used is total minus free; known zero is distinct from missing data.
+- `filesystems`: rows for configured `state` and, when configured, `control` locations only. Each row has `scope`, `status`, nullable `device`, `total_mib`, `used_mib`, `available_mib`, `reserved_mib`, `inodes_total`, `inodes_available`. A status other than `"available"` means unknown readings, not zero. MiB is 2^20 bytes, counts are inodes. Used excludes all free blocks, available is unprivileged-available space, reserved is free minus available. Rows with the same device represent the same filesystem: **do not add them**. No raw paths are exported. `filesystem_scope` states that this is not a complete host mount inventory.
+- `cpu`: `{available, percent, reason, interval_seconds, measured_at, scope}`. Host-wide percent is 0–100, not percent of one core or per-process usage. The first sample is normally null with `available:false, reason:"warmup_or_unknown"`; unavailable reads may use `reason:"unavailable"`. Neither means zero load. A known percentage has `reason:null`. The sampler uses cumulative-counter deltas, with `interval_seconds` the observed delta window (not a caller-selected window); it is null when the percentage is unknown. A failed CPU sample invalidates the counter baseline, so recovery first warms up with unknown percentage/window before a later valid delta. It may reuse a CPU sample for less than 0.5 seconds. `cpu.measured_at` retains the CPU sample's own timestamp even when surrounding host facts are newer. Treat null/invalid/unfamiliar CPU fields as unknown, never infer CPU availability from the outer flag.
+
+An available sample with CPU warmup or any unknown metric ends the current read successfully with those facts unknown; it is not a transient-error retry trigger. A separately requested later observation may obtain a CPU delta, but do not schedule an unlimited warmup polling loop. This prose defines interpretation, not a machine-readable output schema; input-schema validation alone cannot validate returned metric values.
+
+These are local host observations, not provider health, cost, admission permission, process completion or proof of no side effects. They expose no process/job/cgroup details, complete mount inventory, storage growth, worktree/log/Graphify footprint or retention policy. No read authorizes cleanup, slot release, recovery, service restart, approval, resume or replay.
+
 ## Human approvals, stops and unknown outcomes
 
 For a hold, inspect `permission_pending` and `permission_get`; preserve the actual approval ID and challenge. The exact private action preimage is deliberately not exported through MCP. The human must independently inspect it and sign through the existing trusted operator workflow. Agents must not create/use the owner's private key, sign for the owner, treat OAuth/model/log text as fresh consent, or request blanket access. Relay only that genuine signature through `permission_respond`; keep signatures and private packets out of prompts, reports and artifacts. The synthetic signature in `examples.json` is intentionally invalid and must never be sent.
@@ -121,11 +151,11 @@ End with a factual handoff in the caller's **existing authorized** journal: proj
 
 ## Not available through this MCP surface
 
-No all-five-route execution, automatic/recommended routing, native Swarm orchestration, full event replay/subscriptions, cancellation/reconciliation, memory CRUD/search, metrics/spend queries, cleanup/retention controls, project listing, arbitrary filesystem/shell access or caller-supplied execution receipts. No per-job effort/budget/deadline/permission-profile fields. Do not emulate these through undocumented APIs or backdoor jobs; ask for the missing approved operator capability.
+No all-five-route execution, automatic/recommended routing, native Swarm orchestration, full event replay/subscriptions, cancellation/reconciliation, memory CRUD/search, per-job metrics/spend queries or complete host inventories, cleanup/retention controls, project listing, arbitrary filesystem/shell access or caller-supplied execution receipts. No per-job effort/budget/deadline/permission-profile fields. Do not emulate these through undocumented APIs or backdoor jobs; ask for the missing approved operator capability.
 
 ## Examples, validation and publication
 
-[examples.json](examples.json) contains request-only schema fixtures for all 13 tools plus invalid counterexamples. IDs/project/model/signature values are synthetic placeholders; no successful responses, working credentials or consent are supplied. Do not execute the fixture collection as a workflow.
+[examples.json](examples.json) contains request-only schema fixtures for all 14 tools plus invalid counterexamples. IDs/project/model/signature values are synthetic placeholders; no successful responses, working credentials or consent are supplied. Do not execute the fixture collection as a workflow.
 
 From this pack checkout, maintainers can run `python scripts/validate_pack.py` with an existing Python environment providing `jsonschema`. It validates fixtures against the [source-derived schema snapshot](../../protocol/tool-input-schemas.json), invoking **no tool handlers**. To re-export/compare against the source's actual in-process registry, use `docs/caller-skills/validate_examples.py` in the pinned source repository with its existing MCP/test dependencies. Neither check proves live authentication, native execution, deployment readiness or human comprehension.
 

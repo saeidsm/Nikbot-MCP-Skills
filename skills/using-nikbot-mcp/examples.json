@@ -1,10 +1,23 @@
 {
-  "pack_version": "0.3.0",
+  "pack_version": "0.4.0",
   "purpose": "Offline input-schema fixtures, NOT an executable workflow or proof of backend acceptance. All IDs, project, model and signature are synthetic. Replace only from actual authorized data; never send the invalid signature placeholder. No tool responses or consent are represented.",
   "cases": [
     {
       "id": "discover", "schema_valid": true,
       "request": {"jsonrpc": "2.0", "id": "discover", "method": "tools/call", "params": {"name": "engine_capabilities", "arguments": {}}}
+    },
+    {
+      "id": "host-resources", "schema_valid": true,
+      "note": "Discover first. No arguments. An available response can contain unknown metrics; CPU warmup is not zero, configured filesystems are not all mounts. No cleanup or execution authority.",
+      "request": {"jsonrpc": "2.0", "id": "host-resources", "method": "tools/call", "params": {"name": "host_resources", "arguments": {}}}
+    },
+    {
+      "id": "reject-host-path", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-host-path", "method": "tools/call", "params": {"name": "host_resources", "arguments": {"path": "/synthetic"}}}
+    },
+    {
+      "id": "reject-host-owner", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-host-owner", "method": "tools/call", "params": {"name": "host_resources", "arguments": {"owner": "synthetic"}}}
     },
     {
       "id": "submit-default", "schema_valid": true,

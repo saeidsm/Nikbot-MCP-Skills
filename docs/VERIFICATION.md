@@ -1,4 +1,20 @@
-# Caller pack 0.3.0 — verification scope
+# Caller pack 0.4.0 — verification scope
+
+Prepared 2026-11-12 from `saeidsm/Codex-Cli-MCP` commit `aa012343088842a6882c8f5f4874773cb0d433c5`. The snapshot was freshly exported from that committed source's actual in-process `tools/list`, with synthetic authentication and a dispatch-forbidding stub: **14 tools**, no handlers invoked. It describes source inputs, not a live server upgrade.
+
+## Current host-resource increment
+
+- Adds the existing source's no-argument authenticated `host_resources` contract: host CPU/load, memory, swap and configured state/control filesystem facts. Partial/unknown readings, CPU warmup/recovery and separate sample timestamps are explicit. Same-device rows are not summed; no per-job headroom, complete mount inventory, storage growth, footprint or cleanup authority is claimed.
+- The reference-only0.3 baseline could not specify host telemetry. The candidate0.4 paper application passed six scenarios covering partial readings, timestamps, bounded busy/timeout retries, denial/unsupported distinctions, malformed output and headroom/cleanup refusal. Warmup scheduling was clarified and rechecked: available partial results end the read with unknown facts, not automatic retries. This is paper evidence, not executed host-caller or live acceptance.
+- Source implementation review initially requested changes for a recovery CPU percentage spanning3seconds paired with a2second interval. The lead reproduced it before correction. The wrapper now invalidates its private baseline on sampling failure and re-warms before reporting a valid delta; shared readers remain unchanged. Lead137affected tests passed28.31s, including existing local real-OS comparison tests. Independent corrective review explicitly approved and cleared the finding after127synthetic focused tests passed30.01s; the reviewer omitted the real-OS comparison file. No production MCP telemetry calls or service/configuration/DB changes occurred.
+- Pack count regression first failed1/passed6 against the old0.3snapshot. After refresh: **7 standalone tests passed;18valid/15invalid examples across14tools**. Examples are byte-identical to source and caller-reference body matches except the repository-specific publication tail. Independent publication review **approved this eight-file0.4refresh**, independently passing7standalone tests and18valid/15invalid/14-tool validation, comparing every packaged input schema exactly with the authenticated in-process source registry (zero handlers), and verifying example/body parity. No material findings. This is publication-only approval, not deployment, installation or runtime acceptance.
+- One full source regression from the exact committed archive is running separately; no new full pass is claimed here. Earlier isolated event-caller exercises below are historical and do not verify this host contract. Publication is not deployment, enrollment or operational authorization.
+
+## Historical pack 0.3.0 — retained event evidence
+
+The following describes immutable pack `19ffccdef04a82f7f31cf2f17f0ad1a83824d7c5`, not the host-resource increment.
+
+### Event snapshot provenance
 
 Prepared 2026-11-12 from `saeidsm/Codex-Cli-MCP` commit `4d39d8cd52ef4659955a2320f76b7efecdfaa491`. The snapshot was freshly exported from that committed source's actual in-process `tools/list`, with synthetic authentication and a dispatch-forbidding stub: **13 tools**, no handlers invoked. It describes source inputs, not a live server upgrade.
 
