@@ -1,7 +1,7 @@
 {
-  "pack_version": "0.2.0",
+  "pack_version": "0.3.0",
   "source_repository": "saeidsm/Codex-Cli-MCP",
-  "source_commit": "9e7b8d9100f07d092f6460bd06760a95af71778f",
+  "source_commit": "4d39d8cd52ef4659955a2320f76b7efecdfaa491",
   "scope": "Offline source input-schema snapshot; connected tools/list remains authoritative. No handlers invoked; not live-server availability or runtime permission evidence.",
   "tools": [
     {
@@ -82,6 +82,33 @@
           "job_id": {
             "pattern": "^[a-f0-9]{32}$",
             "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "job_events",
+      "inputSchema": {
+        "properties": {
+          "job_id": {
+            "pattern": "^[a-f0-9]{32}$",
+            "type": "string"
+          },
+          "after_seq": {
+            "default": "0",
+            "pattern": "^(?:0|[1-9][0-9]{0,18})$",
+            "type": "string"
+          },
+          "limit": {
+            "default": 100,
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
           }
         },
         "required": [

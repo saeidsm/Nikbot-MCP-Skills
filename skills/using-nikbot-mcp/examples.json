@@ -1,5 +1,5 @@
 {
-  "pack_version": "0.2.0",
+  "pack_version": "0.3.0",
   "purpose": "Offline input-schema fixtures, NOT an executable workflow or proof of backend acceptance. All IDs, project, model and signature are synthetic. Replace only from actual authorized data; never send the invalid signature placeholder. No tool responses or consent are represented.",
   "cases": [
     {
@@ -28,6 +28,28 @@
     {
       "id": "status", "schema_valid": true,
       "request": {"jsonrpc": "2.0", "id": "status", "method": "tools/call", "params": {"name": "job_status", "arguments": {"job_id": "00000000000000000000000000000000"}}}
+    },
+    {
+      "id": "events-first", "schema_valid": true,
+      "note": "Read metadata only. Discover job_events first. This is not a subscription, approval or proof of completion.",
+      "request": {"jsonrpc": "2.0", "id": "events-first", "method": "tools/call", "params": {"name": "job_events", "arguments": {"job_id": "00000000000000000000000000000000"}}}
+    },
+    {
+      "id": "events-next", "schema_valid": true,
+      "note": "Use the actual next_after_seq string from this job's last page. Never an artifact cursor or a different job's sequence. Stop paging at has_more:false; later polling is separately bounded.",
+      "request": {"jsonrpc": "2.0", "id": "events-next", "method": "tools/call", "params": {"name": "job_events", "arguments": {"job_id": "00000000000000000000000000000000", "after_seq": "9007199254740993", "limit": 50}}}
+    },
+    {
+      "id": "reject-numeric-event-cursor", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-numeric-event-cursor", "method": "tools/call", "params": {"name": "job_events", "arguments": {"job_id": "00000000000000000000000000000000", "after_seq": 1}}}
+    },
+    {
+      "id": "reject-event-limit", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-event-limit", "method": "tools/call", "params": {"name": "job_events", "arguments": {"job_id": "00000000000000000000000000000000", "limit": 101}}}
+    },
+    {
+      "id": "reject-artifact-event-cursor", "schema_valid": false,
+      "request": {"jsonrpc": "2.0", "id": "reject-artifact-event-cursor", "method": "tools/call", "params": {"name": "job_events", "arguments": {"job_id": "00000000000000000000000000000000", "cursor": ""}}}
     },
     {
       "id": "result", "schema_valid": true,

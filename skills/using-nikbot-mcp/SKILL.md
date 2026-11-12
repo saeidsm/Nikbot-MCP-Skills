@@ -5,7 +5,7 @@ description: Use when an authorized caller needs Nikbot MCP project jobs, engine
 
 # Using Nikbot MCP
 
-**Pack version 0.2.0 — source contract inspected 2026-11-12.** This is a prepared caller reference, not an installed skill, deployment attestation or new wire protocol. The connected server's `tools/list` is authoritative. Use the existing authenticated MCP connection and negotiated MCP transport; never add a pack-version envelope to tool arguments.
+**Pack version 0.3.0 — source contract inspected 2026-11-12.** This is a prepared caller reference, not an installed skill, deployment attestation or new wire protocol. The connected server's `tools/list` is authoritative. Use the existing authenticated MCP connection and negotiated MCP transport; never add a pack-version envelope to tool arguments.
 
 ## First task: discover, choose, submit, observe
 
@@ -13,7 +13,7 @@ description: Use when an authorized caller needs Nikbot MCP project jobs, engine
 2. Use standard MCP `tools/list`, then `engine_capabilities()`. Missing tools/fields mean that feature is unavailable on this connection, not permission to use a private endpoint. A transport failure is not evidence a configured engine is absent.
 3. If the owner selects a stable route, require `route` in the connected submit schema and `route_selection_supported:true` for that exact identity, then supply `route` and omit `target`. This selects the configured route, not an attested upstream provider. If the owner requires verified upstream identity, stop when that evidence is unavailable. Otherwise unverified health/authentication alone is not a failed probe or a reason to switch routes; an already-authorized bounded task may be submitted, subject to all backend/native gates. Without a route requirement, historical `target` is `codex` or configured `claudecode`, defaulting to `codex`. Choose an advertised model or omit it for the configured default; discovery never grants permissions or entitlement.
 4. Persist the exact `submit_job` arguments and a unique stable `key` in the caller's authorized journal **before** submitting. Send a bounded, nonsecret task specifying goal, permitted changes, checks and stop conditions. Preserve the actual returned `job_id`.
-5. Poll `job_status(job_id)` with bounded backoff and a caller-side wait deadline. No job-event stream/subscription API exists; MCP transport streaming is not job-event delivery. A caller wait deadline is not a runner deadline or cancellation.
+5. Poll `job_status(job_id)` with bounded backoff and a caller-side wait deadline. If advertised, read `job_events` metadata using the bounded pagination below. There is no job-event subscription; MCP transport streaming is not job-event delivery. A caller wait deadline is not a runner deadline or cancellation.
 6. Fetch `job_result(job_id)`. Handle a pending question or supplemental hold through the paths below. Stop automatic execution/replay on rejection, uncertainty, unfamiliar states or operator-inspection admission closure.
 
 Minimal **request shape**, after substituting a real granted project and authorized task:
@@ -34,7 +34,7 @@ The JSON-RPC `id` correlates one request; it is not the durable idempotency `key
 
 Omitted `target` is distinguishable from explicit `codex`: the latter conflicts with a Claude route. Sessions inherit the exact route/configuration binding; resume cannot switch routes or repair a changed binding. `route_unavailable`, `route_target_conflict`, `route_permission_profile_required` and `route_binding_changed` are refusals, not fallback signals. Preserve arguments/key/IDs and obtain authorized operator resolution; do not drop the route, change keys or route around the refusal. Existing target-only sessions report no route selection and are not retroactively attested.
 
-## Actual 12-tool quick reference
+## Actual 13-tool quick reference
 
 Required arguments are shown without `?`. No tool accepts a caller-supplied owner.
 
@@ -43,6 +43,7 @@ Required arguments are shown without `?`. No tool accepts a caller-supplied owne
 | `engine_capabilities` | none | Configuration/catalog discovery, not a live health probe. |
 | `submit_job` | `project, text, key, target?, model?, route?` | New approved task; explicit configured strict route when supported, otherwise historical default target `codex`. |
 | `job_status` | `job_id` | Owner-scoped snapshot. |
+| `job_events` | `job_id, after_seq?, limit?` | Currently granted job's ordered coordination metadata. Start at `"0"`; integer limit 1–100, default 100. |
 | `job_result` | `job_id` | Output/question and available evidence fields. |
 | `resume_job` | `job_id, text, key, model?` | New conversational turn from eligible latest job; target is fixed per session. Omitted model retains current session model; changes require engine support. |
 | `answer_question` | `job_id, question_id, text, key` | Answer the actual pending nonsecret question. Stale IDs reject; do not invent a question ID. |
@@ -66,6 +67,7 @@ Successful `structuredContent` has these source-defined shapes (placeholders bel
 | `submit_job` | `{job_id, replayed}`. `replayed:true` means exact-key/request recovery returned an existing ID, not a second execution. No state/model echo guaranteed. |
 | `job_status` | `{job_id, state}`; owner-controller responses also include `execution_capacity`, nullable `route_selection`, and `handoff` when recorded. Route selection separates requested/configured identity and strict profile from nullable, unverified `effective_route`. |
 | `job_result` | Status fields plus `text, question, question_id`. Question fields may be null, output may be empty. Owner evidence fields below are separate facts. |
+| `job_events` | `{job_id, available, source:"coordination_events", events:[{seq, phase, created_at}], next_after_seq, has_more}`. Sequence IDs/cursors are decimal strings, not numbers. Unknown phases become `"unknown"`; invalid timestamps become null. |
 | `job_artifacts` | `{job_id, enabled, artifacts, next_cursor}`. Disabled delivery: `enabled:false`, empty array, null cursor. |
 | `artifact_file` | An artifact view for the approved entry, not a page. With neither configured delivery nor private handoff, it instead returns the disabled envelope above; never assume `file_url` exists. |
 
@@ -84,6 +86,16 @@ Owner `job_result` independently reports `execution_state`, `process_state` (`cl
 For artifact pagination, start with omitted cursor or `""`; pass the actual nonempty `next_cursor`, and stop at null (do not send null). Cursors are empty or 32 lowercase hex characters. A rejected cursor requires restarting enumeration from the first page, not submitting another job. Published views can contain `artifact_id`, `status`, `delivery_state`, `summary_url`, `browse_url`, `zip_url`, and a selected `file_url`; unavailable/revoked/expired delivery omits links. Private handoff entries may instead provide `status:"private_ready"`, `inline_available:true` and `content`; ZIP content is base64. Interpret the actual view's encoding and verified manifest; do not blindly execute/decode content or treat a link as fetched bytes.
 
 Source anchors: `remote_gateway/local_queue.py:307–365`, `remote_gateway/owner_controller.py:606–653`, `remote_gateway/mcp_bridge.py:130–143`; envelope and artifact checks in `tests/test_mcp_bridge.py`, `tests/test_owner_artifacts.py` and `tests/test_owner_review_handoff.py`. These are prepared-source contracts, not proof an older connected deployment supplies every field.
+
+## Read recorded event metadata
+
+After discovering `job_events`, start with `{"job_id":"ACTUAL_JOB_ID","after_seq":"0","limit":100}`. Check transport/MCP errors first. Require the returned job ID to match, `source:"coordination_events"`, boolean availability/pagination flags and an array of events. `available:false` means this queue cannot supply coordination history (legacy queue or missing/unreviewed read index); stop event enumeration and report unavailable, not “nothing happened.” No private endpoint or execution retry is authorized.
+
+For an available page, retain ordered `seq` strings and `next_after_seq` in the existing authorized journal, keyed by this job. While `has_more:true`, pass that exact returned `next_after_seq` as `after_seq` with the same job ID. Decimal cursors have no leading zeros except `"0"` and are at most `"9223372036854775807"`; preserve them as strings (use exact integer comparison, not floating-point conversion). Sequences must increase beyond the input cursor, but gaps are normal. For a nonempty page require `next_after_seq` to equal its last event sequence exactly; for an empty page require it to equal the input cursor. Require a nonempty advancing page when `has_more:true`; on malformed/nonadvancing/unfamiliar output stop and preserve the discrepancy. Deduplicate by job ID plus sequence when recovering a repeated read.
+
+Stop the current enumeration at `has_more:false`, including an empty page, which retains the input cursor. Later events may appear: bounded polling can start from the last returned cursor. Cap each catch-up at 10 pages or 15 seconds, whichever comes first; bound each transport wait to the remaining time. If a call times out or the bound is exhausted, retain the last fully validated cursor and report incomplete enumeration rather than loop indefinitely. Later polling requires a caller-selected overall deadline and bounded backoff; without those, return the handoff instead of scheduling another catch-up. None of these caller limits cancel the job. An empty/final page is not job completion, cancellation, full audit coverage or absence of side effects. This view includes only existing job-bound coordination records, not legacy queue events, all native tool logs or project-wide events; it exposes no retention/completeness guarantee or historical snapshot token.
+
+Phase labels such as `approval_human_response`, `approval_finished`, `completed` or `secondary_usage_settled` are recorded categories, not proof of an allow decision, native permission, effect success, human identity or known spend. Unknown phase/time stays unknown. Inspect current status/result and the established approval/evidence tools for their own facts; no event instructs the caller to execute, approve, resume or replay an action. No free-text summary, reason, prompt, path, signature, approval preimage or raw evidence is delivered by this view.
 
 ## Human approvals, stops and unknown outcomes
 
@@ -109,11 +121,11 @@ End with a factual handoff in the caller's **existing authorized** journal: proj
 
 ## Not available through this MCP surface
 
-No all-five-route execution, automatic/recommended routing, native Swarm orchestration, event replay/subscriptions, cancellation/reconciliation, memory CRUD/search, metrics/spend queries, cleanup/retention controls, project listing, arbitrary filesystem/shell access or caller-supplied execution receipts. No per-job effort/budget/deadline/permission-profile fields. Do not emulate these through undocumented APIs or backdoor jobs; ask for the missing approved operator capability.
+No all-five-route execution, automatic/recommended routing, native Swarm orchestration, full event replay/subscriptions, cancellation/reconciliation, memory CRUD/search, metrics/spend queries, cleanup/retention controls, project listing, arbitrary filesystem/shell access or caller-supplied execution receipts. No per-job effort/budget/deadline/permission-profile fields. Do not emulate these through undocumented APIs or backdoor jobs; ask for the missing approved operator capability.
 
 ## Examples, validation and publication
 
-[examples.json](examples.json) contains request-only schema fixtures for all 12 tools plus invalid counterexamples. IDs/project/model/signature values are synthetic placeholders; no successful responses, working credentials or consent are supplied. Do not execute the fixture collection as a workflow.
+[examples.json](examples.json) contains request-only schema fixtures for all 13 tools plus invalid counterexamples. IDs/project/model/signature values are synthetic placeholders; no successful responses, working credentials or consent are supplied. Do not execute the fixture collection as a workflow.
 
 From this pack checkout, maintainers can run `python scripts/validate_pack.py` with an existing Python environment providing `jsonschema`. It validates fixtures against the [source-derived schema snapshot](../../protocol/tool-input-schemas.json), invoking **no tool handlers**. To re-export/compare against the source's actual in-process registry, use `docs/caller-skills/validate_examples.py` in the pinned source repository with its existing MCP/test dependencies. Neither check proves live authentication, native execution, deployment readiness or human comprehension.
 

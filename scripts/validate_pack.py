@@ -13,7 +13,7 @@ from jsonschema import Draft202012Validator
 def validate_pack(root: Path) -> tuple[int, int, int]:
     pack = json.loads((root / 'skills/using-nikbot-mcp/examples.json').read_text())
     snapshot = json.loads((root / 'protocol/tool-input-schemas.json').read_text())
-    if pack['pack_version'] != snapshot['pack_version'] or pack['pack_version'] != '0.2.0':
+    if pack['pack_version'] != snapshot['pack_version'] or pack['pack_version'] != '0.3.0':
         raise ValueError('Pack/schema version mismatch')
     if not re.fullmatch(r'[a-f0-9]{40}', snapshot['source_commit']):
         raise ValueError('Missing exact source commit')

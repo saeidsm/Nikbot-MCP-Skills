@@ -30,7 +30,7 @@ class PackValidationTests(unittest.TestCase):
         path.write_text(json.dumps(data))
 
     def test_current_pack_has_all_actual_tools_and_counterexamples(self):
-        self.assertEqual(self.validator.validate_pack(self.root), (15, 10, 12))
+        self.assertEqual(self.validator.validate_pack(self.root), (17, 13, 13))
 
     def test_bad_example_is_rejected(self):
         self.change('skills/using-nikbot-mcp/examples.json',

@@ -2,16 +2,16 @@
 
 Versioned caller guidance for the existing NikBot MCP service. Product implementation remains in [Codex-Cli-MCP](https://github.com/saeidsm/Codex-Cli-MCP); this repository contains reusable documentation, input schemas, synthetic examples and offline validation—not copied service code or private project state.
 
-## Caller pack 0.2.0
+## Caller pack 0.3.0
 
-Start with [using-nikbot-mcp](skills/using-nikbot-mcp/SKILL.md). It covers discovery, configured route selection, durable submission/idempotency, status/results, supplemental human-approval boundaries, questions/resume, artifact verification and a safe handoff. It explicitly identifies unsupported cancellation, event streams, Swarm, memory APIs, metrics and cleanup rather than inventing tools.
+Start with [using-nikbot-mcp](skills/using-nikbot-mcp/SKILL.md). It covers discovery, configured route selection, durable submission/idempotency, status/results, bounded job-event metadata pages, supplemental human-approval boundaries, questions/resume, artifact verification and a safe handoff. It explicitly identifies unsupported cancellation, event streams, Swarm, memory APIs, metrics and cleanup rather than inventing tools.
 
 - [Request examples and invalid counterexamples](skills/using-nikbot-mcp/examples.json)
 - [Source-advertised tool input schemas](protocol/tool-input-schemas.json)
 - [Verification and limitations](docs/VERIFICATION.md)
 - [Versioning and compatibility](protocol/versioning.md)
 
-The schema snapshot was exported without dispatching tool handlers from source commit [`9e7b8d9100f07d092f6460bd06760a95af71778f`](https://github.com/saeidsm/Codex-Cli-MCP/commit/9e7b8d9100f07d092f6460bd06760a95af71778f). It is not a live deployment attestation. The connected server's authenticated `tools/list` and actual capability response remain authoritative; a snapshot does not grant execution permission.
+The schema snapshot was exported without dispatching tool handlers from source commit [`4d39d8cd52ef4659955a2320f76b7efecdfaa491`](https://github.com/saeidsm/Codex-Cli-MCP/commit/4d39d8cd52ef4659955a2320f76b7efecdfaa491). It is not a live deployment attestation. The connected server's authenticated `tools/list` and actual capability response remain authoritative; a snapshot does not grant execution permission.
 
 ## Use or install
 
