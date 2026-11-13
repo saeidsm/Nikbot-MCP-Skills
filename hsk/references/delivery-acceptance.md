@@ -1,6 +1,6 @@
 # Acceptance examples
 
-Choose tests matching the actual risk. These examples prevent common false-completion claims, not mandatory extra projects.
+Choose a short set matching actual impact and risk; these are examples, not a mandate to test every scenario. Preserve mandatory project checks. Demonstrate the complete agreed product through staged releases, not a throwaway MVP.
 
 ## Product/UI
 - A permitted real role can open the original input, perform the task, recover saved progress and reopen the result.
@@ -18,6 +18,11 @@ Choose tests matching the actual risk. These examples prevent common false-compl
 - Match originals with identifiers, hashes and source evidence. Keep ambiguous associations separate; do not fabricate source records or transcription.
 - Back up/restore appropriately; compare preserved records, roles and counts, and test idempotency/concurrency.
 - No global queue draining or paid retry merely to test a small feature. Scope live probes and enforce their authorized ceiling.
+
+## Capacity and usability
+- Declare workload, active/concurrent user target and test environment; measure a bounded representative load and report latency, errors and resource saturation. Do not treat registered users as simultaneous jobs.
+- Do not claim hundreds-user readiness from mocks or a health check. State measurement limits and the next scaling trigger.
+- Inspect rendered responsive UI and exercise the main interaction; check readable hierarchy, controls, progress and error recovery.
 
 ## Artifact delivery
 - Original output included, bytes/hash match, intended recipient can download, unauthorized access fails where required.
