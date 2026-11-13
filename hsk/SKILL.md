@@ -1,84 +1,84 @@
 ---
 name: hsk
-description: "Hasan Kachal / حسن کچل: turn an ambitious task into a comprehensive, bounded execution brief and drive authorized work to a verified usable product. Use for HSK, HSK کن, حسن کچل کن, or requests to package a task for autonomous execution by an external executor and subagents. Distinguish prompt preparation from permission to execute."
+description: "Hasan Kachal / حسن کچل: plan comprehensively, then deliver a safe, polished, usable product in visible phases with efficient time and token use. Use for HSK, HSK کن, حسن کچل کن, autonomous execution briefs for sam/Claude/Codex, or resuming authorized product delivery. Not a mandate to build an MVP, invent scope, or bypass permissions."
 ---
 
 # HSK — حسن کچل
 
-HSK means **own the outcome, not an endless plan**. Convert a rough goal into a precise assignment that a capable lead and its workers can finish without asking the owner to manage every step. Deliver a usable vertical slice early, then complete the remaining agreed scope. A large test count, a polished report, or source pushed to a branch is not delivery.
+**Optimize for the fastest trustworthy working product, not the most code, tests, agents or reports.** Plan the complete agreed outcome and its connections before implementation; execute in visible, usable phases. The goal is a ready-to-use, safe, efficient product with clean UI/UX, not a throwaway MVP or a demo with fake integrations. Early phases are delivery checkpoints, not permission to abandon the full scope.
 
-## Choose the requested mode
+## Choose the mode
 
-- **Execution brief:** When asked to “HSK this for my coding agent”, produce a self-contained execution prompt and handoff. Do not start a competing implementation. Read [the brief template](references/execution-brief.md). Preparing a handoff does not itself authorize sending instructions to an external agent; deliver it to the user unless sending is authorized.
-- **Execute:** When asked to do the work autonomously, use the brief as the working contract and continue through authorized implementation, tests, review and delivery.
-- **Resume:** Find the existing task and executor, reconcile what actually happened, then continue missing work. Do not restart from discovery or spawn duplicates merely because context changed.
-- If the user only asks to create this skill, create the skill; do not execute an unrelated product task.
+- **Brief:** Prepare a self-contained execution handoff using [execution brief](references/execution-brief.md). Do not start a competing implementation or send it to an external agent without authorization.
+- **Execute:** Carry authorized work through implementation, proportionate verification, release and real acceptance.
+- **Resume:** Recover the current executor, state and evidence; continue missing work rather than repeating discovery.
+- A request to update this skill authorizes that update, not unrelated product work. Resolve ambiguous mode from the conversation; ask only if the distinction blocks a consequential action.
 
-For an unspecified “HSK کن”, retain the context: if the conversation is preparing a prompt for another agent, prepare that prompt; if it asks to build an outcome, execute within its authorization. Ask only when this consequential distinction cannot be resolved.
+## 1. Plan the whole product, once
 
-## 1. Establish the delivery contract
+Inspect the existing source, deployed baseline, project instructions, active workers and prior decisions. Check critical prerequisites early: data and original attachments, credentials presence without exposing secrets, provider availability/budget, supported APIs, deployment access and migration compatibility. Do not design around an unverified integration.
 
-Inspect the current project, instructions, artifacts, live baseline and active executors. Reuse the existing repository, architecture, approved design and worktrees. Do not invent unavailable APIs or assume a configured model is working.
+Create one compact delivery contract:
+1. Target users, their real journeys, required outputs and supported devices.
+2. Agreed features and explicit exclusions; no agent-invented features.
+3. A small architecture diagram and connection map: UI → API → storage/jobs → providers → returned result. Include identity, permission decisions, async work, errors and recovery where relevant.
+4. Data lifecycle: ownership, access separation, durable saves, interruption/retry behavior, retention and recovery.
+5. Deployment topology, dependencies, compatibility constraints and operational ownership.
+6. Capacity assumptions: registered versus active/concurrent users, representative workload, latency and resource limits. Design for the requested capacity, including hundreds of users when required, without equating that with hundreds of simultaneous expensive jobs.
+7. Ordered phases with visible outputs, acceptance checks, dependencies and the next release target.
+8. Time/token/spend limits and the few risks that could actually prevent safe delivery.
 
-Write a short contract containing:
-- User outcome and target users, surfaces and environment.
-- A smallest **usable** release, explicit acceptance examples, and later agreed phases.
-- Scope exclusions: enhancements are backlog, not new prerequisites.
-- Existing evidence versus claims not yet verified.
-- Dependencies, authority, data-sharing boundaries, spending cap and rollback constraints.
-- Where work, state, results and next action will be retained.
+Cover relevant corners and integration boundaries, not every imaginable scenario. Reuse proven open-source components and existing project tools after checking fit, license, maintenance and real interfaces. Prefer a thin integration over rebuilding queues, permission bridges or UI foundations. Avoid adding a framework merely to avoid a small adapter.
 
-Make reversible product choices yourself. Ask only for a missing fact that blocks a specific step after checking available sources, a material tradeoff reserved for the owner, or an action requiring confirmation. Routine discovery, tests and ordinary implementation should not become repeated approval requests. This skill is not permission to bypass a denied tool, hook, sandbox, budget, authentication or native safety mechanism; use the supported approval path and continue independent work.
+Make ordinary reversible choices and proceed. Ask only for an essential unresolved fact, an owner-reserved tradeoff or required approval. This skill grants no extra authority: respect tool denials, native safety checks, secrets, data sharing and budgets. Continue independent work while a genuinely blocked action waits.
 
-## 2. Orchestrate without interference
+## 2. Execute in visible phases
 
-Keep one accountable lead. Delegate independent implementation or review with a precise outcome, allowed files, dependencies, acceptance checks and return format. Limit parallelism to the available compute, context and conflict risk; more workers is not inherently faster.
+Keep one accountable lead and one owner for shared migrations/releases. Reuse active workers and worktrees; never start duplicate jobs because a report is missing. Delegate only independent bounded work whose benefit exceeds coordination cost. Respect requested models and verify actual routing.
 
-- Inspect active sessions before starting workers. Assign ownership of shared files, migrations and releases.
-- Use isolated worktrees when needed; reuse existing ones and avoid duplicate clones or indexes.
-- Integrate completed work before launching redundant variants. A review finds actionable defects, not a mandate to redesign everything.
-- Respect the user's chosen models. Use the chosen lead for important design/integration decisions and appropriately capable workers for bounded implementation, tests and review when that routing is available. Verify actual routing; do not silently substitute models or spend on a new provider. Track meaningful model/token/time spend when available, but never convert subscription quota percentages into API cost without supported rates and usage data.
-- Send changes in user direction to existing workers. Follow up idle workers; do not leave work abandoned when a new request arrives.
+First prove the most important end-to-end journey on the real stack. Then complete the agreed features in dependency order. Every phase must produce something observable: a working screen, integration, output or deployed behavior, not only another specification. Show the user the current result early, with unfinished behavior clearly labeled.
 
-## 3. Deliver in bounded slices
+Freeze each phase's scope. Put optional ideas in a future-work backlog, not in the release path. Incorporate explicit user changes and their impact; do not silently shrink the final contract. A blocked dependency is not a reason to rebuild unrelated modules or leave independently deliverable work unfinished.
 
-Start with one representative end-to-end user flow and real inputs. Keep data durable across interruptions where the task depends on it. Fix correctness blockers and ship the slice before growing dashboards, adapters, inventories or abstractions.
+## 3. Spend tokens on decisions and delivery
 
-A later explicit user reprioritization can change the release contract: incorporate it, explain the delivery impact, and refreeze. The feature-freeze rule prevents agent-invented scope creep, not the owner changing direction.
+Use a concise current-state handoff: source version, completed behavior, evidence, next action and real blocker. Read relevant files/diffs and bounded logs; retrieve more only when needed. Do not repeatedly ingest full repositories, histories or verbose test output. Preserve full logs as artifacts and summarize the actionable lines.
 
-If a blocked dependency prevents full delivery, release an independently useful, authorized slice only when it is safe and does not misleadingly present unavailable functions as working; record the remaining outcome as open.
+Use the selected capable lead for architecture and consequential integration decisions; use permitted less expensive models for bounded implementation where appropriate. Avoid repeated multi-agent reviews and speculative variants. Track actual usage when available; never equate subscription percentage with an API invoice.
 
-At each milestone: compare against the contract, freeze feature growth for that release, integrate, test, review, then deliver. Preserve all remaining agreed features in the backlog. Do not reduce scope silently or call an interim slice the finished product.
+Reassess at each phase if planning, review or tests are consuming the delivery budget without producing a working increment. Narrow the next action, reuse existing evidence and solve the concrete blocker. Do not repeat an unchanged expensive test suite or failed experiment without a reason and a changed hypothesis.
 
-For user-facing products, reuse the existing design system and suitable design/RTL skills; aim for clear, polished, accessible interaction rather than treating passing tests as sufficient UX.
+## 4. Verify proportionately, not exhaustively
 
-Use targeted tests while iterating and a full appropriate regression on the final frozen candidate. Repeat a full run when the candidate changes materially, not after every documentation edit. Preserve failed acceptance evidence; fix the cause rather than changing thresholds, skipping tests or rerunning until green.
+Select a short acceptance matrix from [delivery acceptance](references/delivery-acceptance.md) before implementation. While iterating, run checks for changed paths and likely regressions. Before release, run the necessary integration/regression checks for the frozen candidate; use a full suite when project rules or broad impact justify it, not as an automatic ritual.
 
-## 4. Prove usefulness, not just code correctness
+A first release does not require thousands of newly invented tests, every hypothetical fault, or proof of zero errors. Existing mandatory CI still applies. Never disable a required check, weaken assertions or hide failures to ship faster.
 
-Use the relevant acceptance checklist in [delivery acceptance](references/delivery-acceptance.md).
+Prioritize:
+- The main real user journey from original input to saved/reopened output.
+- Authentication/access separation and protection of data and credentials.
+- The relevant interruption/retry path, avoiding lost progress and duplicate effects.
+- Migration/recovery safety when state changes are involved.
+- A bounded representative performance check at the declared concurrency and workload, plus resource observations. Record measured capacity separately from the design target; do not claim hundreds of users were proven by a health check.
 
-- Prove the whole path with real authentication and representative data when permitted. Mocks and synthetic fixtures establish limited facts only.
-- Check prerequisites early: original attachments, account access, provider entitlement/credit, configuration, model support and deployment capability. A UI without its source data or an unaffordable provider is not the intended working feature.
-- Verify output files are actually retrievable and correct. Include only explicitly intended outputs; never export arbitrary untracked files or secrets.
-- Distinguish code written, tests passed, source pushed, merged, deployed, enabled and user-accepted. Give no guessed percent complete.
+Use synthetic/non-sensitive data where possible and authorized real integration probes when needed. Mocks are not provider or deployment acceptance. Fix release-blocking defects; log low-impact imperfections with an owner and follow-up rather than seeking impossible perfection. Use independent review for consequential changes, not endless review of the same frozen bytes.
 
-## 5. Release and finish
+## 5. Make UI/UX part of functionality
 
-Follow the project's release rules. Bind reviewed/tested source to the exact release. Back up relevant data, verify recovery proportional to risk, retain rollback artifacts, check concurrent work, and use a reversible rollout. Do not deploy unrelated pending changes blindly or label a destructive migration reversible without evidence.
+Reuse the project's design system and appropriate UI/UX, RTL and Persian element skills. Build a coherent primary flow with clear hierarchy, readable typography, responsive layouts, obvious actions, accessible controls and useful empty/loading/error states. Preserve user progress across navigation and unreliable networks when the task requires it.
 
-After release, check actual user flow, health, access isolation and output delivery. If a gate stays off, say what users can and cannot do. If blocked, deliver useful independent results plus the exact missing requirement; do not fabricate completion or silently replay uncertain jobs.
+Inspect the rendered product on relevant desktop/mobile sizes and walk through the actual workflow. A screenshot alone is not interaction testing; passing backend tests is not acceptable UX. Avoid exposing internal processing and developer controls in the user's main path. Never call an unchanged legacy screen a delivered redesign.
 
-End with a concise result: usable link/artifact, demonstrated behavior, stage evidence, outstanding items with owner/trigger, and rollback or known limitations that affect use. In private owner delivery, existing authorized expiring report links may be printed as full copyable SUMMARY_URL, REPORT_URL and ZIP_URL and returned in structured MCP fields; keep credentials out of public repositories and permanent logs.
+## 6. Release a usable product and prove it
 
-## 6. Preserve continuity
+Use the existing supported release process and exact tested source. Take appropriate backups, check migration compatibility and recovery proportional to risk, and preserve rollback or forward-repair options. Do not blindly restore a live database or revert to an incompatible API. Do not deploy unrelated changes.
 
-Use the project's existing task registry and handoff, not a second competing tracker. Keep reusable skills/code separate from private business context; use the owner-designated private tracker.
+Verify running version, health and the representative user journey after release. Check required workers, persistence and restart behavior when applicable. Deliver a usable link or artifact and a short demonstration of what works. Unavailable features must not masquerade as active controls.
 
-Every unfinished task records: current stage/evidence, executor, next action, blocker and responsible party, review date or event trigger, and definition of done. Update after meaningful changes. If a future check is needed, use an actual supported schedule/notification and verify it exists before promising to watch. Notes alone do not wake an agent.
+Report separately: **implemented / tested / pushed / merged / deployed / enabled / accepted**. Never turn test counts or source commits into claims of a usable product. State known limitations and real blockers, not guessed completion percentages. Finish only when the agreed product is usable or a specific blocker prevents further authorized progress.
 
-Do not claim that this skill permanently monitors work or grants tools. A later agent must revalidate state, permissions and active ownership before resuming.
+## 7. Preserve continuity without bureaucracy
 
-## Publishing reusable skills
+Use the existing private task registry and handoff, not a second tracker. Record current phase/evidence, executor, next action, blocker/owner, review date or event trigger and definition of done. Keep a concise chronological summary so another agent can resume without rereading every log. Do not abandon open work when attention shifts.
 
-When public skill publication is explicitly authorized, follow [the public release workflow](references/public-skill-release.md). Publish a sanitized portable edition, not a private environment snapshot. Keep one skill per dedicated branch and obtain an independent review of the exact bytes before public upload.
+Use a supported schedule only when follow-up is needed and authorized; verify it exists before promising to monitor. Keep generic reusable skills separate from business context. For authorized public publication, follow [public skill release](references/public-skill-release.md), with a dedicated skill branch and a sanitized portable edition. Never publish secrets, private infrastructure details, customer data or token-bearing links.
