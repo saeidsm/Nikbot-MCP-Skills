@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shahrzad Gift Account"
+  short_description: "Prepare a private, ready-to-deliver family gift"
+  default_prompt: "Use $shahrzad-gift-account to prepare and verify a personalized Shahrzad gift account from my brief."
