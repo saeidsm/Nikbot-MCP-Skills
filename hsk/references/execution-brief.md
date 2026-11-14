@@ -1,6 +1,6 @@
 # Execution brief template
 
-Use only relevant fields. Replace placeholders with discovered facts; label unknowns. Keep the lead prompt self-contained but link large evidence rather than pasting histories. For sam terminals, prefer English; product content remains the user's requested language and design.
+Use only relevant fields. Replace placeholders with discovered facts; label unknowns. Keep the lead prompt self-contained but link large evidence rather than pasting histories. For terminal-based executors, prefer English; product content remains the user's requested language and design.
 
 ```text
 You own delivery of [outcome] for [users/environment]. Continue existing work rather than restarting it.
@@ -23,7 +23,7 @@ Continue routine authorized steps without asking repeatedly. Respect real approv
 EXECUTION
 1. Reconcile live state, instructions and workers; maintain one owner for shared resources.
 2. Plan all agreed journeys, component/data/permission connections, recovery and deployment before coding. Keep the plan compact; then execute in visible phases. Do not return only a new plan.
-3. Use bounded workers with clear ownership and the verified model routing below.
+3. Use two or three independent workers when useful, with isolated worktrees, resource limits, explicit ownership and verified model routing. Reuse active workers. Keep one owner for shared migrations/releases. Collect completed outputs, integrate/test them and assign the next ready priority; distinguish live processes from stale records and preserve unknown outcomes.
 4. Establish a working end-to-end path early. Validate data and provider prerequisites before polishing the UI.
 5. Freeze each phase; run risk-based changed-path and integration checks. Run full regression only when project rules or broad impact require it. No invented thousands of tests, endless scope growth or repeated unchanged expensive runs.
 6. Review significant risks independently, fix demonstrated blockers, and release through the project's supported reversible path when authorized.

@@ -40,6 +40,14 @@ First prove the most important end-to-end journey on the real stack. Then comple
 
 Freeze each phase's scope. Put optional ideas in a future-work backlog, not in the release path. Incorporate explicit user changes and their impact; do not silently shrink the final contract. A blocked dependency is not a reason to rebuild unrelated modules or leave independently deliverable work unfinished.
 
+### Coordinate useful parallel work
+
+Use two or three independent executors when that shortens delivery; do not launch workers just to fill slots. Give each a project/task, isolated branch or worktree, bounded resources and spend, acceptance criteria, and a result channel. Check live processes and existing assignments before starting; a stale session record is not proof of active RAM use, and a missing report is not permission to replay a job. Keep one owner for shared files, database migrations and production releases; serialize conflicting changes.
+
+Track each executor as running, waiting for permission/input, blocked, failed or finished, with its last concrete result and next action. Collect and review finished outputs, integrate compatible work, then assign the next ready priority rather than leaving an idle executor while authorized work remains. Use an available durable schedule for promised periodic checks; do not claim continuous supervision from a one-off launch. Preserve logs and uncertain outcomes, and never resolve a blocked permission by switching tools to defeat it.
+
+For terminal-based workers, expose a clear session list and supported attach/switch controls. Label headless jobs and provide live logs where available, without pretending they accept interactive input. Respect verified model routing: use the requested planning model for the compact plan and requested execution model for implementation; do not infer an alias from its name.
+
 ## 3. Spend tokens on decisions and delivery
 
 Use a concise current-state handoff: source version, completed behavior, evidence, next action and real blocker. Read relevant files/diffs and bounded logs; retrieve more only when needed. Do not repeatedly ingest full repositories, histories or verbose test output. Preserve full logs as artifacts and summarize the actionable lines.
@@ -52,7 +60,9 @@ Reassess at each phase if planning, review or tests are consuming the delivery b
 
 Select a short acceptance matrix from [delivery acceptance](references/delivery-acceptance.md) before implementation. While iterating, run checks for changed paths and likely regressions. Before release, run the necessary integration/regression checks for the frozen candidate; use a full suite when project rules or broad impact justify it, not as an automatic ritual.
 
-A first release does not require thousands of newly invented tests, every hypothetical fault, or proof of zero errors. Existing mandatory CI still applies. Never disable a required check, weaken assertions or hide failures to ship faster.
+Treat the target as a usable product, not a disposable MVP, and not automatically a platform for tens of thousands or millions of users. Prioritize a visible working UI and the complete user journey over accumulating tests before anything works. A first release does not require thousands of newly invented tests, every hypothetical fault, or proof of zero errors. Existing mandatory CI still applies. Never disable a required check, weaken assertions or hide failures to ship faster.
+
+For each release, choose the smallest defensible set of checks covering security, data preservation, functional correctness and the main journey. Add a test only for a concrete risk, changed contract or demonstrated regression; test count is not a success metric. Once those checks pass, proceed to the usable release instead of inventing another review cycle. Escalate depth for real high-impact changes.
 
 Prioritize:
 - The main real user journey from original input to saved/reopened output.

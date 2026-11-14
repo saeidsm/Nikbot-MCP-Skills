@@ -2,6 +2,13 @@
 
 Choose a short set matching actual impact and risk; these are examples, not a mandate to test every scenario. Preserve mandatory project checks. Demonstrate the complete agreed product through staged releases, not a throwaway MVP.
 
+Use the smallest defensible matrix for the actual release. Do not add speculative scale or duplicate checks while the product still lacks a usable UI. Test counts are not acceptance evidence.
+
+## Parallel execution
+- Confirm independent ownership, resource limits and live process state before launch.
+- Integrate a completed result and verify handoff to the next ready task; do not leave authorized work idle after a session ends.
+- Serialize shared migration/release work; do not replay uncertain external effects.
+
 ## Product/UI
 - A permitted real role can open the original input, perform the task, recover saved progress and reopen the result.
 - Test actual data associations, not only populated fixtures. Cover letters are not their attached scans.
