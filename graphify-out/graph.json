@@ -1,0 +1,1618 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "validate_pack.py",
+      "file_type": "code",
+      "source_file": "scripts/validate_pack.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_validate_pack",
+      "community": 6,
+      "norm_label": "validate_pack.py"
+    },
+    {
+      "label": "validate_pack()",
+      "file_type": "code",
+      "source_file": "scripts/validate_pack.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "scripts_validate_pack_validate_pack",
+      "community": 6,
+      "norm_label": "validate_pack()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "path",
+      "community": 6,
+      "norm_label": "path"
+    },
+    {
+      "label": "Offline request-example validation against a source-derived schema snapshot.  Re",
+      "file_type": "rationale",
+      "source_file": "scripts/validate_pack.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_validate_pack_rationale_1",
+      "community": 6,
+      "norm_label": "offline request-example validation against a source-derived schema snapshot.  re"
+    },
+    {
+      "label": "test_validate_pack.py",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack",
+      "community": 2,
+      "norm_label": "test_validate_pack.py"
+    },
+    {
+      "label": "PackValidationTests",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests",
+      "community": 2,
+      "norm_label": "packvalidationtests"
+    },
+    {
+      "label": ".setUpClass()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_setupclass",
+      "community": 2,
+      "norm_label": ".setupclass()"
+    },
+    {
+      "label": ".setUp()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_setup",
+      "community": 6,
+      "norm_label": ".setup()"
+    },
+    {
+      "label": ".change()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_change",
+      "community": 2,
+      "norm_label": ".change()"
+    },
+    {
+      "label": ".test_current_pack_has_all_actual_tools_and_counterexamples()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_current_pack_has_all_actual_tools_and_counterexamples",
+      "community": 2,
+      "norm_label": ".test_current_pack_has_all_actual_tools_and_counterexamples()"
+    },
+    {
+      "label": ".test_bad_example_is_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_bad_example_is_rejected",
+      "community": 2,
+      "norm_label": ".test_bad_example_is_rejected()"
+    },
+    {
+      "label": ".test_lost_tool_coverage_is_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_lost_tool_coverage_is_rejected",
+      "community": 2,
+      "norm_label": ".test_lost_tool_coverage_is_rejected()"
+    },
+    {
+      "label": ".test_version_mismatch_is_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_version_mismatch_is_rejected",
+      "community": 2,
+      "norm_label": ".test_version_mismatch_is_rejected()"
+    },
+    {
+      "label": ".test_duplicate_case_is_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_duplicate_case_is_rejected",
+      "community": 2,
+      "norm_label": ".test_duplicate_case_is_rejected()"
+    },
+    {
+      "label": ".test_duplicate_tool_is_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_duplicate_tool_is_rejected",
+      "community": 2,
+      "norm_label": ".test_duplicate_tool_is_rejected()"
+    },
+    {
+      "label": ".test_invalid_rpc_envelope_is_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_packvalidationtests_test_invalid_rpc_envelope_is_rejected",
+      "community": 2,
+      "norm_label": ".test_invalid_rpc_envelope_is_rejected()"
+    },
+    {
+      "label": "Offline publication checks: never contact or invoke an MCP server.",
+      "file_type": "rationale",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_validate_pack_rationale_1",
+      "community": 2,
+      "norm_label": "offline publication checks: never contact or invoke an mcp server."
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 3,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Nikbot-MCP-Skills",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_nikbot_mcp_skills",
+      "community": 3,
+      "norm_label": "nikbot-mcp-skills"
+    },
+    {
+      "label": "Caller pack 0.4.0",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "readme_caller_pack_0_4_0",
+      "community": 3,
+      "norm_label": "caller pack 0.4.0"
+    },
+    {
+      "label": "Use or install",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "readme_use_or_install",
+      "community": 3,
+      "norm_label": "use or install"
+    },
+    {
+      "label": "Offline checks",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "readme_offline_checks",
+      "community": 3,
+      "norm_label": "offline checks"
+    },
+    {
+      "label": "Publication and implementation status",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "readme_publication_and_implementation_status",
+      "community": 3,
+      "norm_label": "publication and implementation status"
+    },
+    {
+      "label": "VERIFICATION.md",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_verification",
+      "community": 3,
+      "norm_label": "verification.md"
+    },
+    {
+      "label": "Caller pack 0.4.0 \u2014 verification scope",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "community": 4,
+      "norm_label": "caller pack 0.4.0 \u2014 verification scope"
+    },
+    {
+      "label": "Current host-resource increment",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "docs_verification_current_host_resource_increment",
+      "community": 4,
+      "norm_label": "current host-resource increment"
+    },
+    {
+      "label": "Historical pack 0.3.0 \u2014 retained event evidence",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "docs_verification_historical_pack_0_3_0_retained_event_evidence",
+      "community": 4,
+      "norm_label": "historical pack 0.3.0 \u2014 retained event evidence"
+    },
+    {
+      "label": "Event snapshot provenance",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "docs_verification_event_snapshot_provenance",
+      "community": 4,
+      "norm_label": "event snapshot provenance"
+    },
+    {
+      "label": "Current increment",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "docs_verification_current_increment",
+      "community": 4,
+      "norm_label": "current increment"
+    },
+    {
+      "label": "Executed event-caller exercise",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "docs_verification_executed_event_caller_exercise",
+      "community": 4,
+      "norm_label": "executed event-caller exercise"
+    },
+    {
+      "label": "Historical pack 0.2.0 \u2014 retained evidence",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "docs_verification_historical_pack_0_2_0_retained_evidence",
+      "community": 4,
+      "norm_label": "historical pack 0.2.0 \u2014 retained evidence"
+    },
+    {
+      "label": "Completed checks",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "docs_verification_completed_checks",
+      "community": 4,
+      "norm_label": "completed checks"
+    },
+    {
+      "label": "Not established",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "docs_verification_not_established",
+      "community": 4,
+      "norm_label": "not established"
+    },
+    {
+      "label": "Reproduce",
+      "file_type": "document",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "docs_verification_reproduce",
+      "community": 4,
+      "norm_label": "reproduce"
+    },
+    {
+      "label": "NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11",
+      "community": 3,
+      "norm_label": "nikbot_mcp_unified_execution_directive_2026-11-11.md"
+    },
+    {
+      "label": "NikBot MCP \u2014 Unified AI Execution Control Plane",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "community": 0,
+      "norm_label": "nikbot mcp \u2014 unified ai execution control plane"
+    },
+    {
+      "label": "Final autonomous implementation directive for Claude Code / Astra",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_final_autonomous_implementation_directive_for_claude_code_astra",
+      "community": 0,
+      "norm_label": "final autonomous implementation directive for claude code / astra"
+    },
+    {
+      "label": "0. Mission, context, and decisions already made",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_0_mission_context_and_decisions_already_made",
+      "community": 0,
+      "norm_label": "0. mission, context, and decisions already made"
+    },
+    {
+      "label": "Existing operational context",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_existing_operational_context",
+      "community": 0,
+      "norm_label": "existing operational context"
+    },
+    {
+      "label": "1. Rules of execution and checkpoints",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_1_rules_of_execution_and_checkpoints",
+      "community": 0,
+      "norm_label": "1. rules of execution and checkpoints"
+    },
+    {
+      "label": "Build order",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_build_order",
+      "community": 0,
+      "norm_label": "build order"
+    },
+    {
+      "label": "2. Phase 0 \u2014 Mandatory actual environment audit and Sol mapping",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_2_phase_0_mandatory_actual_environment_audit_and_sol_mapping",
+      "community": 0,
+      "norm_label": "2. phase 0 \u2014 mandatory actual environment audit and sol mapping"
+    },
+    {
+      "label": "3. Five-route execution API and per-job agent overrides",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_3_five_route_execution_api_and_per_job_agent_overrides",
+      "community": 0,
+      "norm_label": "3. five-route execution api and per-job agent overrides"
+    },
+    {
+      "label": "4. Route adapters and subscription accounting",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L137",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "community": 5,
+      "norm_label": "4. route adapters and subscription accounting"
+    },
+    {
+      "label": "Claude Code via OpenRouter",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L139",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_claude_code_via_openrouter",
+      "community": 5,
+      "norm_label": "claude code via openrouter"
+    },
+    {
+      "label": "Claude Code via GPT Proxy",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L142",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_claude_code_via_gpt_proxy",
+      "community": 5,
+      "norm_label": "claude code via gpt proxy"
+    },
+    {
+      "label": "Claude Code via official Anthropic",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_claude_code_via_official_anthropic",
+      "community": 5,
+      "norm_label": "claude code via official anthropic"
+    },
+    {
+      "label": "Antigravity",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_antigravity",
+      "community": 5,
+      "norm_label": "antigravity"
+    },
+    {
+      "label": "Codex CLI \u2014 New fifth route",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_codex_cli_new_fifth_route",
+      "community": 5,
+      "norm_label": "codex cli \u2014 new fifth route"
+    },
+    {
+      "label": "Resource/cost semantics",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L154",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_resource_cost_semantics",
+      "community": 5,
+      "norm_label": "resource/cost semantics"
+    },
+    {
+      "label": "5. Durable Execution Ledger and operational memory",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L159",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_5_durable_execution_ledger_and_operational_memory",
+      "community": 0,
+      "norm_label": "5. durable execution ledger and operational memory"
+    },
+    {
+      "label": "6. Agent communication: shared protocol + installable skills",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_6_agent_communication_shared_protocol_installable_skills",
+      "community": 0,
+      "norm_label": "6. agent communication: shared protocol + installable skills"
+    },
+    {
+      "label": "7. Graphify \u2014 avoid duplicate copies and index bloat",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_7_graphify_avoid_duplicate_copies_and_index_bloat",
+      "community": 0,
+      "norm_label": "7. graphify \u2014 avoid duplicate copies and index bloat"
+    },
+    {
+      "label": "8. Git worktree lifecycle and disk safety",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L242",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_8_git_worktree_lifecycle_and_disk_safety",
+      "community": 0,
+      "norm_label": "8. git worktree lifecycle and disk safety"
+    },
+    {
+      "label": "9. TUI + authenticated Persian RTL Web UI",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L263",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_9_tui_authenticated_persian_rtl_web_ui",
+      "community": 7,
+      "norm_label": "9. tui + authenticated persian rtl web ui"
+    },
+    {
+      "label": "Terminal management",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L265",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_terminal_management",
+      "community": 7,
+      "norm_label": "terminal management"
+    },
+    {
+      "label": "Web UI",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L280",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_web_ui",
+      "community": 7,
+      "norm_label": "web ui"
+    },
+    {
+      "label": "Host telemetry",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L294",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_host_telemetry",
+      "community": 7,
+      "norm_label": "host telemetry"
+    },
+    {
+      "label": "Safe disk reclamation protocol",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L297",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_safe_disk_reclamation_protocol",
+      "community": 7,
+      "norm_label": "safe disk reclamation protocol"
+    },
+    {
+      "label": "10. Autonomous phase orchestration, engineering quality and pushing",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L308",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_10_autonomous_phase_orchestration_engineering_quality_and_pushing",
+      "community": 0,
+      "norm_label": "10. autonomous phase orchestration, engineering quality and pushing"
+    },
+    {
+      "label": "11. ERP-first delivery and agent allocation",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L344",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_11_erp_first_delivery_and_agent_allocation",
+      "community": 0,
+      "norm_label": "11. erp-first delivery and agent allocation"
+    },
+    {
+      "label": "12. Operator documentation and final acceptance",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L366",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_12_operator_documentation_and_final_acceptance",
+      "community": 0,
+      "norm_label": "12. operator documentation and final acceptance"
+    },
+    {
+      "label": "Operator's immediate instruction",
+      "file_type": "document",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L384",
+      "_origin": "ast",
+      "id": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_operator_s_immediate_instruction",
+      "community": 0,
+      "norm_label": "operator's immediate instruction"
+    },
+    {
+      "label": "versioning.md",
+      "file_type": "document",
+      "source_file": "protocol/versioning.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "protocol_versioning",
+      "community": 3,
+      "norm_label": "versioning.md"
+    },
+    {
+      "label": "Caller-pack compatibility",
+      "file_type": "document",
+      "source_file": "protocol/versioning.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "protocol_versioning_caller_pack_compatibility",
+      "community": 3,
+      "norm_label": "caller-pack compatibility"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill",
+      "community": 3,
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "Using Nikbot MCP",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "community": 1,
+      "norm_label": "using nikbot mcp"
+    },
+    {
+      "label": "First task: discover, choose, submit, observe",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_first_task_discover_choose_submit_observe",
+      "community": 1,
+      "norm_label": "first task: discover, choose, submit, observe"
+    },
+    {
+      "label": "Discovery identities are not dispatch targets",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_discovery_identities_are_not_dispatch_targets",
+      "community": 1,
+      "norm_label": "discovery identities are not dispatch targets"
+    },
+    {
+      "label": "Actual 14-tool quick reference",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_actual_14_tool_quick_reference",
+      "community": 1,
+      "norm_label": "actual 14-tool quick reference"
+    },
+    {
+      "label": "Response envelopes and polling decisions",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_response_envelopes_and_polling_decisions",
+      "community": 1,
+      "norm_label": "response envelopes and polling decisions"
+    },
+    {
+      "label": "Read recorded event metadata",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_read_recorded_event_metadata",
+      "community": 1,
+      "norm_label": "read recorded event metadata"
+    },
+    {
+      "label": "Read bounded host resources",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_read_bounded_host_resources",
+      "community": 1,
+      "norm_label": "read bounded host resources"
+    },
+    {
+      "label": "Human approvals, stops and unknown outcomes",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_human_approvals_stops_and_unknown_outcomes",
+      "community": 1,
+      "norm_label": "human approvals, stops and unknown outcomes"
+    },
+    {
+      "label": "Cancellation, questions and resuming",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L138",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_cancellation_questions_and_resuming",
+      "community": 1,
+      "norm_label": "cancellation, questions and resuming"
+    },
+    {
+      "label": "Verify results and delivery",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L144",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_verify_results_and_delivery",
+      "community": 1,
+      "norm_label": "verify results and delivery"
+    },
+    {
+      "label": "Not available through this MCP surface",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L152",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_not_available_through_this_mcp_surface",
+      "community": 1,
+      "norm_label": "not available through this mcp surface"
+    },
+    {
+      "label": "Examples, validation and publication",
+      "file_type": "document",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "skills_using_nikbot_mcp_skill_examples_validation_and_publication",
+      "community": 1,
+      "norm_label": "examples, validation and publication"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_pack.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scripts_validate_pack",
+      "target": "scripts_validate_pack_validate_pack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_pack.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_validate_pack_rationale_1",
+      "target": "scripts_validate_pack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_pack.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scripts_validate_pack_validate_pack",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_setup",
+      "target": "path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack",
+      "target": "tests_test_validate_pack_packvalidationtests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_rationale_1",
+      "target": "tests_test_validate_pack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_setupclass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_bad_example_is_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_current_pack_has_all_actual_tools_and_counterexamples",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_duplicate_case_is_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_duplicate_tool_is_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_invalid_rpc_envelope_is_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_lost_tool_coverage_is_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests",
+      "target": "tests_test_validate_pack_packvalidationtests_test_version_mismatch_is_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_test_bad_example_is_rejected",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_test_duplicate_case_is_rejected",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_test_duplicate_tool_is_rejected",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_test_invalid_rpc_envelope_is_rejected",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_test_lost_tool_coverage_is_rejected",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_validate_pack.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "tests_test_validate_pack_packvalidationtests_test_version_mismatch_is_rejected",
+      "target": "tests_test_validate_pack_packvalidationtests_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "docs_verification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "protocol_versioning",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_nikbot_mcp_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "skills_using_nikbot_mcp_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "readme_nikbot_mcp_skills",
+      "target": "readme_caller_pack_0_4_0",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "readme_nikbot_mcp_skills",
+      "target": "readme_offline_checks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "readme_nikbot_mcp_skills",
+      "target": "readme_publication_and_implementation_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "readme_nikbot_mcp_skills",
+      "target": "readme_use_or_install",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_verification",
+      "target": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_completed_checks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_current_host_resource_increment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_current_increment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_executed_event_caller_exercise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_historical_pack_0_2_0_retained_evidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_historical_pack_0_3_0_retained_event_evidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_not_established",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "docs_verification_caller_pack_0_4_0_verification_scope",
+      "target": "docs_verification_reproduce",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/VERIFICATION.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "docs_verification_historical_pack_0_3_0_retained_event_evidence",
+      "target": "docs_verification_event_snapshot_provenance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_0_mission_context_and_decisions_already_made",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L308",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_10_autonomous_phase_orchestration_engineering_quality_and_pushing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L344",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_11_erp_first_delivery_and_agent_allocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L366",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_12_operator_documentation_and_final_acceptance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_1_rules_of_execution_and_checkpoints",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_2_phase_0_mandatory_actual_environment_audit_and_sol_mapping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_3_five_route_execution_api_and_per_job_agent_overrides",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_5_durable_execution_ledger_and_operational_memory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_6_agent_communication_shared_protocol_installable_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_7_graphify_avoid_duplicate_copies_and_index_bloat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_8_git_worktree_lifecycle_and_disk_safety",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L263",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_9_tui_authenticated_persian_rtl_web_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_final_autonomous_implementation_directive_for_claude_code_astra",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L384",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_nikbot_mcp_unified_ai_execution_control_plane",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_operator_s_immediate_instruction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_0_mission_context_and_decisions_already_made",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_existing_operational_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_1_rules_of_execution_and_checkpoints",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_build_order",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_antigravity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_claude_code_via_gpt_proxy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_claude_code_via_official_anthropic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_claude_code_via_openrouter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_codex_cli_new_fifth_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_4_route_adapters_and_subscription_accounting",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_resource_cost_semantics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L294",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_9_tui_authenticated_persian_rtl_web_ui",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_host_telemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L297",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_9_tui_authenticated_persian_rtl_web_ui",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_safe_disk_reclamation_protocol",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L265",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_9_tui_authenticated_persian_rtl_web_ui",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_terminal_management",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "prompts/NIKBOT_MCP_UNIFIED_EXECUTION_DIRECTIVE_2026-11-11.md",
+      "source_location": "L280",
+      "weight": 1.0,
+      "source": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_9_tui_authenticated_persian_rtl_web_ui",
+      "target": "prompts_nikbot_mcp_unified_execution_directive_2026_11_11_web_ui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "protocol/versioning.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "protocol_versioning",
+      "target": "protocol_versioning_caller_pack_compatibility",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill",
+      "target": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_actual_14_tool_quick_reference",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_cancellation_questions_and_resuming",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_discovery_identities_are_not_dispatch_targets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_examples_validation_and_publication",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_first_task_discover_choose_submit_observe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_human_approvals_stops_and_unknown_outcomes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_not_available_through_this_mcp_surface",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_read_bounded_host_resources",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_read_recorded_event_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_response_envelopes_and_polling_decisions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "skills/using-nikbot-mcp/SKILL.md",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "skills_using_nikbot_mcp_skill_using_nikbot_mcp",
+      "target": "skills_using_nikbot_mcp_skill_verify_results_and_delivery",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
