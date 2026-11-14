@@ -35,3 +35,23 @@ Run: python3 tools/sam-menu/test_sam_menu.py
 Installed launcher has a timestamped backup under /root/.local/share/sam-menu/
 backups/. Restore that sam.sh backup to /root/sam.sh to roll back. No running
 session needs restarting. Do not include task.json or credentials in source control.
+
+## November 14 update
+The new-task menu offers E (execution: `opus` → `gpt-6.1-sol`) and P
+(planning: `fable` → `gpt-6-astra`). A separate sam-bridge.sh supplies these
+aliases; the original claude-gpt wrapper and running workers are unchanged.
+The selected real model is displayed in task metadata. This is configuration,
+not proof of provider execution; tests intentionally do not charge a model.
+
+Completed managed workers write exit.status. Their terminals/history remain
+visible for inspection but no longer consume one of the three admissions.
+Unclassified legacy sessions count conservatively until explicitly closed.
+The counter covers this menu, not arbitrary CLI invocations or an OS RAM quota.
+Available host RAM is displayed; callers must still coordinate shared services.
+
+Number selection attaches outside tmux and switches inside tmux. For a directly
+launched legacy Claude process, --print/-p is shown as headless output, otherwise
+an interactive Claude label is shown. Thinking versus waiting for approval cannot
+be inferred reliably from tmux client attachment or an IDLE label. The caller
+preview is a Python UI, not a Sam worker. No automated permission approval,
+queue replay, old-session cancellation or service changes are performed.

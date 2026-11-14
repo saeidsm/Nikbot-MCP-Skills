@@ -17,7 +17,7 @@ class Integration(unittest.TestCase):
         self.base = Path(self.tmp.name)
         self.tmux = ["tmux", "-L", "sam-test-" + uuid.uuid4().hex]
         bridge = self.base / "fake-bridge"
-        bridge.write_text("#!/bin/sh\nprintf '%s\\n' \"$@\"\n")
+        bridge.write_text("#!/bin/sh\nprintf '%s\\n' \"$@\"\nsleep 60\n")
         bridge.chmod(0o700)
         self.menu = m.Menu(self.base / "state", self.tmux, str(bridge))
         self.repo = self.base / "repo"
@@ -81,6 +81,24 @@ class Integration(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Three"):
             self.menu.create(self.repo, "fourth")
         self.assertIn("sam-mcp-existing", self.menu.sessions())
+
+    def test_finished_session_preserved_not_capacity(self):
+        name = self.menu.create(self.repo, "done")
+        job = self.menu.tm("show-options", "-qv", "-t", name, "@sam_job").stdout.strip()
+        # Simulate runner completion after process exits; record stays visible.
+        (self.menu.state / job / "exit.status").write_text("0\n")
+        self.assertIn(name, self.menu.sessions())
+        self.assertNotIn(name, self.menu.active_sessions())
+        self.assertIn("exited", self.menu.describe(name))
+
+    def test_role_model_is_explicit(self):
+        name = self.menu.create(self.repo, "planning", "plan")
+        time.sleep(0.2)
+        pane = self.menu.tm("capture-pane", "-p", "-t", name).stdout
+        self.assertIn("fable", pane)
+        self.assertIn("gpt-6-astra", self.menu.describe(name))
+        with self.assertRaises(ValueError):
+            self.menu.create(self.repo, "invalid", "bad")
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
